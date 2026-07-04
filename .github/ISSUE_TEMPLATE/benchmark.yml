@@ -1,0 +1,45 @@
+name: Submit a real-world benchmark
+description: Report the actual tok/s you measured on your Mac — community numbers beat estimates.
+title: "[bench] <model> on <chip> <RAM>GB"
+labels: [benchmark]
+body:
+  - type: input
+    id: machine
+    attributes:
+      label: Machine
+      placeholder: "Mac Studio M2 Max 12c/38c 96GB (2023)"
+    validations: { required: true }
+  - type: input
+    id: model
+    attributes:
+      label: Model
+      placeholder: "Qwen3.6 27B"
+    validations: { required: true }
+  - type: input
+    id: quant
+    attributes:
+      label: Quantization
+      placeholder: "Q4_K_M"
+    validations: { required: true }
+  - type: dropdown
+    id: engine
+    attributes:
+      label: Inference engine
+      options: [ollama, llama.cpp, LM Studio, MLX, other]
+    validations: { required: true }
+  - type: input
+    id: decode
+    attributes:
+      label: Measured decode speed (tok/s)
+      placeholder: "11.2"
+    validations: { required: true }
+  - type: input
+    id: context
+    attributes:
+      label: Context length during the run
+      placeholder: "8192"
+  - type: textarea
+    id: output
+    attributes:
+      label: Tool output (optional but ideal)
+      description: e.g. `ollama run --verbose` timing lines or llama.cpp perf output
