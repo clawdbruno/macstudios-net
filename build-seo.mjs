@@ -114,7 +114,7 @@ for(const llm of D.llms){
   const moe = llm.activeB ? ` It is a mixture-of-experts model: all ${llm.paramsB}B parameters must sit in memory, but only ${llm.activeB}B compute per token, which is why it is faster than dense models of similar size.` : '';
   const cheapest = rows[0];
   embedData[slug] = { name: llm.name, rows: rows.slice(0, 5).map(r => ({ l: label(r.m), p: r.price, q: r.quant.label, t: fmtTok(r.tok) })) };
-  pageUrls.push(`${SITE}/run/${slug}.html`);
+  pageUrls.push(`${SITE}/run/${slug}`);
 
   const heroHtml = cheapest
     ? `<p>The cheapest Mac that runs ${llm.name} comfortably is a <b>used ${label(cheapest.m)}</b> at about <b>${fmtUSD(cheapest.price)}</b> <span class="est">EST.</span> on the used market — running ${cheapest.quant.label} quantization at roughly <b>${fmtTok(cheapest.tok)}</b> with up to ${cheapest.ctx} of context.</p>`
@@ -140,7 +140,7 @@ for(const llm of D.llms){
 <html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Cheapest Mac to run ${llm.name} locally (2026) — macstudios.net</title>
 <meta name="description" content="${cheapest ? `The cheapest way to run ${llm.name} on Apple Silicon: a used ${label(cheapest.m)} at ~${fmtUSD(cheapest.price)}, ${fmtTok(cheapest.tok)} at ${cheapest.quant.label}. Every Mac compared.` : `${llm.name} needs ≈${footprintGB(llm.paramsB, q4.bytes).toFixed(0)}GB resident — what it takes to run it locally on Apple Silicon.`}">
-<link rel="canonical" href="${SITE}/run/${slug}.html">
+<link rel="canonical" href="${SITE}/run/${slug}">
 <meta property="og:title" content="Cheapest Mac to run ${llm.name} locally">
 <meta property="og:image" content="${SITE}/og-image.png">
 <script type="application/ld+json">${JSON.stringify({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faq.map(f => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) })}</script>
@@ -173,7 +173,7 @@ const slug = new URLSearchParams(location.search).get('model') || 'qwen3-6-27b';
 const d = DATA[slug];
 if(d){
   document.getElementById('mname').textContent = d.name;
-  document.getElementById('src').href = '${SITE}/run/' + slug + '.html';
+  document.getElementById('src').href = '${SITE}/run/' + slug;
   document.getElementById('rows').innerHTML = d.rows.length
     ? d.rows.map(r => '<tr><td>' + r.l + '</td><td>$' + r.p.toLocaleString() + '</td><td>' + r.q + '</td><td>' + r.t + '</td></tr>').join('')
     : '<tr><td colspan="4">Needs a multi-Mac cluster — see the full guide.</td></tr>';

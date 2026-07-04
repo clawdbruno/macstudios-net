@@ -11,7 +11,7 @@ const slug = new URLSearchParams(location.search).get('model') || 'qwen3-6-27b';
 const d = DATA[slug];
 if(d){
   document.getElementById('mname').textContent = d.name;
-  document.getElementById('src').href = 'https://macstudios.net/run/' + slug + '.html';
+  document.getElementById('src').href = 'https://macstudios.net/run/' + slug;
   document.getElementById('rows').innerHTML = d.rows.length
     ? d.rows.map(r => '<tr><td>' + r.l + '</td><td>$' + r.p.toLocaleString() + '</td><td>' + r.q + '</td><td>' + r.t + '</td></tr>').join('')
     : '<tr><td colspan="4">Needs a multi-Mac cluster — see the full guide.</td></tr>';
