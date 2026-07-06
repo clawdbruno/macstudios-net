@@ -116,8 +116,18 @@ for(const llm of D.llms){
   embedData[slug] = { name: llm.name, rows: rows.slice(0, 5).map(r => ({ l: label(r.m), p: r.price, q: r.quant.label, t: fmtTok(r.tok) })) };
   pageUrls.push(`${SITE}/run/${slug}`);
 
+  // Q3 fallback: a model that misses Q4 everywhere may still squeeze onto the biggest
+  // machines at Q3_K_M (last-resort quality) — say so rather than a flat "no single Mac".
+  const q3 = D.QUANTS.find(q => q.key === 'q3');
+  const q3Fits = !cheapest ? D.macStudios
+    .filter(m => footprintGB(llm.paramsB, q3.bytes) <= m.ram * 0.75)
+    .map(m => ({ m, price: usedPrice(m), tok: tokensPerSec(m.bw, llm, q3.bytes) }))
+    .sort((a, b) => a.price - b.price)[0] : null;
+
   const heroHtml = cheapest
     ? `<p>The cheapest Mac that runs ${llm.name} comfortably is a <b>used ${label(cheapest.m)}</b> at about <b>${fmtUSD(cheapest.price)}</b> <span class="est">EST.</span> on the used market — running ${cheapest.quant.label} quantization at roughly <b>${fmtTok(cheapest.tok)}</b> with up to ${cheapest.ctx} of context.</p>`
+    : q3Fits
+    ? `<p><b>${llm.name} only just fits a single Mac</b>: a <b>used ${label(q3Fits.m)}</b> (~${fmtUSD(q3Fits.price)} <span class="est">EST.</span>) can hold it at Q3_K_M — last-resort quantization quality — at roughly <b>${fmtTok(q3Fits.tok)}</b>. For Q4-or-better quality it needs ≈${footprintGB(llm.paramsB, q4.bytes).toFixed(0)}GB resident: a multi-machine cluster${cloud != null ? `, or a cloud API at about $${cloud}/1M output tokens` : ''}.</p>`
     : `<p><b>No single Mac can hold ${llm.name}</b> at practical quantizations — it needs ≈${footprintGB(llm.paramsB, q4.bytes).toFixed(0)}GB resident. Running it locally means clustering multiple machines (see the cluster planner on the main site), or using a cloud API${cloud != null ? ` at about $${cloud}/1M output tokens` : ''}.</p>`;
 
   const tableHtml = rows.length ? `<h2>Every Mac that runs it, by used price</h2>

@@ -323,7 +323,7 @@
 <div class="wrap">
   <header>
     <div class="masthead">
-      <div class="eyebrow"><b>Field Guide № 01</b> · Technical reference · Editions 2020 – 2026 · <span title="Date the dataset was last checked against primary sources">Data verified 02 Jul 2026</span></div>
+      <div class="eyebrow"><b>Field Guide № 01</b> · Technical reference · Editions 2020 – 2026 · <span title="Date the dataset was last checked against primary sources">Data verified 04 Jul 2026</span></div>
       <h1>Mac Studio<br><span class="hx">×</span> Local LLMs</h1>
       <div class="sub">Every configuration Apple has ever sold — now also covering the Apple Silicon Mac mini and MacBook Pro — compared spec-for-spec, with which open-weight models each one can actually run: quantization, generation speed, usable context, and true cost of ownership.</div>
     </div>
@@ -865,7 +865,7 @@
   <section class="panel" id="panel-methodology">
     <h2>Data diagnostics</h2>
     <div class="card">
-      <p>Every figure in this guide comes from the dataset embedded in this single file, last verified against primary sources on <b>2 July 2026</b>. This self-test validates the dataset's internal integrity — useful after any future data edit.</p>
+      <p>Every figure in this guide comes from the dataset embedded in this single file, last verified against primary sources on <b>4 July 2026</b>. This self-test validates the dataset's internal integrity — useful after any future data edit.</p>
       <button id="btn-diagnostics" class="chip">Run diagnostics</button>
       <pre id="diag-output" style="display:none;font-family:var(--mono);font-size:11.5px;background:var(--panel2);border:1px solid var(--border);padding:12px;margin-top:12px;white-space:pre-wrap;"></pre>
     </div>
@@ -1165,15 +1165,16 @@ const macMinisAndMBPs = [
 
   // ---- M5 generation (base M5 Oct 2025; M5 Pro/Max Mar 2026) ----
   // Verified: M5 base price $1,599 (Apple newsroom Oct 2025), 10c/10c, 16-32GB, 153GB/s;
-  // M5 Pro from $2,199 and M5 Max from $3,599 (Mar 2026), M5 Pro up to 18c/20c, M5 Max
-  // "up to 614GB/s". Modeled: RAM-tier upcharges (Apple-standard), M5 Pro bandwidth (~half
-  // of Max, consistent with every prior generation), lower/other chip bins not included
-  // where Apple's bin breakdown couldn't be verified.
+  // M5 Pro from $2,199 and M5 Max from $3,599 (Mar 2026), M5 Pro up to 18c/20c.
+  // Bandwidths VERIFIED against Apple tech specs (Jul 2026 audit): M5 Pro 307GB/s,
+  // M5 Max 614GB/s, M5 Pro max RAM 64GB. Modeled: RAM-tier upcharges (Apple-standard),
+  // lower chip bins not included where Apple's bin breakdown couldn't be verified.
   {family:'MacBook Pro', gen:'2025', chip:'M5', cpu:10, gpu:10, ne:16, ram:16, bw:153, storageMax:4096, price:1599, released:'Oct 2025'},
   {family:'MacBook Pro', gen:'2025', chip:'M5', cpu:10, gpu:10, ne:16, ram:24, bw:153, storageMax:4096, price:1799, released:'Oct 2025'},
   {family:'MacBook Pro', gen:'2025', chip:'M5', cpu:10, gpu:10, ne:16, ram:32, bw:153, storageMax:4096, price:1999, released:'Oct 2025'},
   {family:'MacBook Pro', gen:'2026', chip:'M5 Pro', cpu:18, gpu:20, ne:16, ram:24, bw:307, storageMax:4096, price:2199, released:'Mar 2026'},
   {family:'MacBook Pro', gen:'2026', chip:'M5 Pro', cpu:18, gpu:20, ne:16, ram:48, bw:307, storageMax:4096, price:2599, released:'Mar 2026'},
+  {family:'MacBook Pro', gen:'2026', chip:'M5 Pro', cpu:18, gpu:20, ne:16, ram:64, bw:307, storageMax:4096, price:2799, released:'Mar 2026'},
   {family:'MacBook Pro', gen:'2026', chip:'M5 Max', cpu:18, gpu:32, ne:16, ram:36, bw:614, storageMax:8192, price:3599, released:'Mar 2026'},
   {family:'MacBook Pro', gen:'2026', chip:'M5 Max', cpu:18, gpu:32, ne:16, ram:64, bw:614, storageMax:8192, price:3999, released:'Mar 2026'},
   {family:'MacBook Pro', gen:'2026', chip:'M5 Max', cpu:18, gpu:32, ne:16, ram:128, bw:614, storageMax:8192, price:4999, released:'Mar 2026'},
@@ -1308,6 +1309,9 @@ const llms = [
   {name:'DeepSeek V4 Flash', paramsB:284, activeB:13, family:'DeepSeek', popular:true, useCases:['general','long-context','tool-calling']},
   {name:'Kimi K2.5', paramsB:1000, activeB:32, family:'Moonshot', popular:true, useCases:['tool-calling','reasoning','coding']},
   {name:'DeepSeek V4 Pro', paramsB:1600, activeB:49, family:'DeepSeek', popular:true, useCases:['reasoning','coding','long-context']},
+  // July 2026 audit additions — architecture/pricing verified against OpenRouter + HF listings:
+  {name:'Kimi K2.6', paramsB:1000, activeB:32, family:'Moonshot', popular:true, useCases:['tool-calling','reasoning','coding']},
+  {name:'GLM-5.2', paramsB:753, activeB:40, family:'GLM', popular:true, useCases:['coding','tool-calling','long-context']},
 ];
 
 /* ===================== CONTEXT-WINDOW ARCHITECTURE DATA =====================
@@ -1365,6 +1369,8 @@ const CONTEXT_ARCH = {
   'DeepSeek V4 Flash':   {kvKB:50,  maxCtxK:1000},
   'Kimi K2.5':           {kvKB:70,  maxCtxK:256},
   'DeepSeek V4 Pro':     {kvKB:70,  maxCtxK:1000},
+  'Kimi K2.6':           {kvKB:70,  maxCtxK:256},
+  'GLM-5.2':             {kvKB:60,  maxCtxK:1000}, // 1M ctx verified; sparse-attention kv est
 };
 
 /* ===================== CLOUD API PRICING (USD per 1M OUTPUT tokens) =====================
@@ -1414,6 +1420,8 @@ const CLOUD_PRICE_OUT_PER_M = {
   'DeepSeek V4 Flash':   0.196, // verified (OpenRouter)
   'Kimi K2.5':           2.00,
   'DeepSeek V4 Pro':     0.87,  // verified (OpenRouter)
+  'Kimi K2.6':           3.50,  // verified (OpenRouter, Jul 2026 audit)
+  'GLM-5.2':             4.40,  // verified (Z.ai API pricing, Jun 2026)
 };
 
 // Rough FX for converting USD cloud-API prices into the display currency ONLY — hardware
@@ -1443,6 +1451,7 @@ const OLLAMA_ID = {
   'Qwen3.5 35B-A3B':'qwen3.5:35b', 'GLM-4.6':'glm-4.6', 'Qwen3.5 397B-A17B':'qwen3.5:397b',
   'Qwen3-Coder 480B':'qwen3-coder:480b', 'DeepSeek V4 Flash':'deepseek-v4:flash',
   'Kimi K2.5':'kimi-k2.5', 'DeepSeek V4 Pro':'deepseek-v4',
+  'Kimi K2.6':'kimi-k2.6', 'GLM-5.2':'glm-5.2',
 };
 
 /* ===================== MODEL QUALITY SCORES =====================
@@ -1493,6 +1502,8 @@ const QUALITY = {
   'DeepSeek V4 Flash':   {q:44, c:60, v:false},
   'Kimi K2.5':           {q:48, c:65, v:false},
   'DeepSeek V4 Pro':     {q:52, c:70, v:true},
+  'Kimi K2.6':           {q:54, c:72, v:true},  // IQ verified (AA #1 open-weights, mid-2026); code est
+  'GLM-5.2':             {q:51, c:79, v:true},  // IQ verified (AA v4.1); code est from beats-GPT-5.5 coding reports
 };
 
 /* Model release dates as decimal years — verified for the 2026 wave (Qwen3.5 Feb 2026,
@@ -1511,6 +1522,7 @@ const MODEL_RELEASED = {
   'GPT-OSS 120B': 2025.6, 'GLM-4.6': 2025.75, 'Kimi K2.5': 2025.9,
   'Qwen3.5 35B-A3B': 2026.12, 'Qwen3.5 397B-A17B': 2026.12,
   'DeepSeek V4 Flash': 2026.2, 'DeepSeek V4 Pro': 2026.2, 'Qwen3.6 27B': 2026.35,
+  'Kimi K2.6': 2026.3, 'GLM-5.2': 2026.45, // Apr 20 / Jun 16 2026, both verified
 };
 
 /* ===================== COMMUNITY BENCHMARKS =====================
@@ -2404,6 +2416,28 @@ function deepDiveRowHTML(llm, cfg){
   const tag = OLLAMA_ID[llm.name];
   const base = tag.split(':')[0];
   const cmd = `ollama run ${tag}`;
+
+  // Tailored setup guide, computed for THIS machine + model:
+  // 1) wired-memory limit — only when the best runnable quant sits in the 75–90% "tight"
+  //    zone, where macOS's default GPU memory cap (~65-75% of RAM) blocks the load;
+  // 2) context sizing — largest power of two under what the leftover RAM can hold.
+  const bestQ = QUANTS.find(q=>footprintGB(llm.paramsB, q.bytes) <= cfg.ram*0.90) || null;
+  const tight = bestQ ? footprintGB(llm.paramsB, bestQ.bytes) > cfg.ram*0.75 : false;
+  const wiredMB = Math.floor(cfg.ram*1024*0.9);
+  const ctxInfo = bestQ ? maxContextTokens(cfg.ram, llm, llm.paramsB*bestQ.bytes) : null;
+  let ctxPow = 2048;
+  if(ctxInfo && ctxInfo.tokens>0){ while(ctxPow*2 <= ctxInfo.tokens && ctxPow < 1048576) ctxPow*=2; }
+  const setupHtml = bestQ ? `
+      <details style="margin-top:14px;">
+        <summary class="deep-title" style="cursor:pointer;display:inline-block;">Set it up on this machine (tailored) ▸</summary>
+        <ol style="font-size:13px;line-height:1.8;margin:10px 0 0;padding-left:20px;">
+          <li>Install <a href="https://ollama.com/download/mac" target="_blank">Ollama</a> (or <code>brew install ollama</code>), then pull the model: <code>${cmd}</code></li>
+          ${tight ? `<li><b>This fit is tight (${footprintGB(llm.paramsB, bestQ.bytes).toFixed(0)}GB of ${cfg.ram}GB)</b> — raise macOS's GPU memory cap first or the load will fail:<br><code>sudo sysctl iogpu.wired_limit_mb=${wiredMB}</code><br><span style="color:var(--muted);font-size:12px;">(sets the cap to 90% of your ${cfg.ram}GB; resets on reboot; quit heavy apps first)</span></li>` : `<li>No memory tuning needed — ${bestQ.label} fits comfortably in the default GPU memory cap.</li>`}
+          <li>Size the context to what your RAM can actually hold — for this combination up to ≈${fmtContextTokens(ctxInfo).replace(/<[^>]*>/g,'')}: <code>OLLAMA_CONTEXT_LENGTH=${ctxPow} ollama serve</code> <span style="color:var(--muted);font-size:12px;">(or /set parameter num_ctx ${ctxPow} in a session; the default is only 4K)</span></li>
+          <li>Prefer a GUI? <a href="https://lmstudio.ai" target="_blank">LM Studio</a> runs the same GGUF/MLX builds — search "${base}" in its catalog and pick ${bestQ.label}${tight?'; apply the same sysctl for tight fits':''}.</li>
+        </ol>
+      </details>` : '';
+
   return `<tr class="deep-row"><td colspan="8">
     <div class="deep-inner">
       <div class="deep-title">Every quant of ${llm.name} on this machine</div>
@@ -2419,6 +2453,7 @@ function deepDiveRowHTML(llm, cfg){
       ${(()=>{ const c = communityFor(llm, cfg); return c
         ? `<div class="footnote" style="margin-top:6px;border:none;padding:0;"><span class="price-flag verified">✓ community</span> Owners report ~<b>${c.tok} tok/s</b> on this machine (${c.n} report${c.n>1?'s':''}). <a href="${benchSubmitURL(llm, cfg, fmtTokensPerSec(tokensPerSec(cfg.bw, llm, QUANTS.find(q=>q.key==='q4').bytes)))}" target="_blank">Add yours →</a></div>`
         : `<div class="footnote" style="margin-top:6px;border:none;padding:0;">Own this machine? <a href="${benchSubmitURL(llm, cfg, fmtTokensPerSec(tokensPerSec(cfg.bw, llm, QUANTS.find(q=>q.key==='q4').bytes)))}" target="_blank">Submit your real tok/s</a> — community numbers beat estimates.</div>`; })()}
+      ${setupHtml}
     </div>
   </td></tr>`;
 }

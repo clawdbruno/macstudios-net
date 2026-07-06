@@ -10,7 +10,7 @@
 <div class="eyebrow"><a href="https://macstudios.net/" style="text-decoration:none;color:#c43a05;">MACSTUDIOS.NET</a> · Field Guide · Data verified Jul 2026</div>
 <h1>Cheapest Mac to run DeepSeek-V3 / R1</h1>
 <p class="sub">671B parameters (37B active) · quality index 37 · coding 49 · every Apple Silicon Mac ever sold, compared. It is a mixture-of-experts model: all 671B parameters must sit in memory, but only 37B compute per token, which is why it is faster than dense models of similar size.</p>
-<div class="hero"><p><b>No single Mac can hold DeepSeek-V3 / R1</b> at practical quantizations — it needs ≈436GB resident. Running it locally means clustering multiple machines (see the cluster planner on the main site), or using a cloud API at about $2.5/1M output tokens.</p></div>
+<div class="hero"><p><b>DeepSeek-V3 / R1 only just fits a single Mac</b>: a <b>used Mac Studio M3 Ultra 32c/80c 512GB (2025)</b> (~$7,457 <span class="est">EST.</span>) can hold it at Q3_K_M — last-resort quantization quality — at roughly <b>24 tok/s</b>. For Q4-or-better quality it needs ≈436GB resident: a multi-machine cluster, or a cloud API at about $2.5/1M output tokens.</p></div>
 
 <h2>Run it</h2>
 <p><code>ollama run deepseek-r1:671b</code> pulls the default (≈Q4) build once you have <a href="https://ollama.com">Ollama</a> installed.</p>
