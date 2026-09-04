@@ -1,6 +1,6 @@
 # macstudios.net
 
-**The field guide to running local LLMs on Apple Silicon** — every Mac Studio, Mac mini, and MacBook Pro configuration ever sold (75 configs, 2020–2026) crossed with 35 open-weight models: fit, quantization, speed, context, quality, and true 3-year cost, computed live in the browser. One static HTML file, no backend.
+**The field guide to running local LLMs on Apple Silicon** — every Mac Studio, Mac mini, and MacBook Pro configuration ever sold (90 configs, 2020–2026) crossed with 46 open-weight models: fit, quantization, speed, context, quality, and true 3-year cost, computed live in the browser. One static HTML file, no backend.
 
 **Live site: https://macstudios.net**
 
