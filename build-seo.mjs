@@ -72,9 +72,10 @@ const maxCtx = (ramGB, llm, weightsGB) => {
   const k = tokens / 1000;
   return (k >= 1000 ? (k/1000).toFixed(1) + 'M' : Math.round(k) + 'K') + ' tokens';
 };
+// Mirrors index.html's isCurrentlySold — keep the two in sync (25 Aug 2026 refresh retired the
+// 2025 Studio and the 2024 mini).
 const isCurrentlySold = m =>
-  (m.family === 'Studio' && m.gen === '2025') ||
-  (m.family === 'Mac mini' && m.gen === '2024') ||
+  ((m.family === 'Studio' || m.family === 'Mac mini') && m.gen === '2026') ||
   (m.family === 'MacBook Pro' && (m.gen === '2025' || m.gen === '2026'));
 const usedPrice = m => {
   const r = D.USED_MARKET_RANGE_BY_GEN[m.gen];
