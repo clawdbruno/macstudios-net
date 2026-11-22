@@ -41,7 +41,7 @@
         {
           "@type": "Question",
           "name": "Can a Mac Studio run DeepSeek?",
-          "acceptedAnswer": {"@type": "Answer", "text": "Yes. The 512GB M5 Ultra Mac Studio ($22,299, orderable since 28 October 2026) runs DeepSeek-V3/R1 (671B) at ~Q3 quantization around 35 tok/s and Meta's 816B Muse Spark Open at Q3 around 30 tok/s; the 256GB M5 Ultra runs DeepSeek V4 Flash (284B) at Q4 around 76 tok/s but cannot hold 671B. Note two 256GB M5 Ultras cost $700 less than one 512GB unit. The 1.6T-parameter V4 Pro, the 1T Mistral Large 4 and the 2.8T Kimi K3 / K3.1 Pro do not fit any single Mac."}
+          "acceptedAnswer": {"@type": "Answer", "text": "Yes. The 512GB M5 Ultra Mac Studio ($22,299, orderable since 28 October 2026) runs DeepSeek-V3/R1 (671B) at ~Q3 quantization around 35 tok/s and Meta's 816B Muse Spark Open at Q3 around 30 tok/s (a tight fit that needs the GPU memory limit raised); the 256GB M5 Ultra runs DeepSeek V4 Flash (284B) at Q4 around 76 tok/s but cannot hold 671B. Note two 256GB M5 Ultras cost $700 less than one 512GB unit. The 1.6T-parameter V4 Pro, the 1T Mistral Large 4 and the 2.8T Kimi K3 / K3.1 Pro do not fit any single Mac."}
         },
         {
           "@type": "Question",
@@ -1656,11 +1656,11 @@ const QUALITY = {
   'Hunyuan Hy4':         {q:49, c:70, v:false},
   // Nov 2026. K3.1 Pro: AA launch article scores it 55 on v4.3, 11 points over K3 (44 on that
   // version), the largest open-weights jump of the year, so it sits 11 above K3 here. Muse Spark
-  // Open is 5 below K3 on Meta's v4.3 table. Mistral Large 4 ties GLM-5.3 on AA's Coding Agent
-  // Index per Mistral. AA moved to index v5 on 27 Oct 2026 (new private task mix; open-weights
+  // Open is 5 below K3 and Mistral Large 4 6 below on the AA table in Meta's model card (re-checked
+  // 22 Nov against the primary cards; Mistral's own card quotes 26 on v5, a different scale). AA moved to index v5 on 27 Oct 2026 (new private task mix; open-weights
   // best 46); this site stays on the v4-era scale until every anchor can be rebased together.
   'Muse Spark Open':     {q:52, c:66, v:false},
-  'Mistral Large 4':     {q:52, c:78, v:false},
+  'Mistral Large 4':     {q:51, c:78, v:false},
   'Kimi K3.1 Pro':       {q:68, c:84, v:false},
   'Hunyuan Hy4 Flash':   {q:42, c:55, v:false},
 };
