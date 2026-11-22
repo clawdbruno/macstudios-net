@@ -41,12 +41,12 @@
         {
           "@type": "Question",
           "name": "Can a Mac Studio run DeepSeek?",
-          "acceptedAnswer": {"@type": "Answer", "text": "Yes, but which one matters. The 256GB M5 Ultra Mac Studio — the largest Mac orderable today — runs DeepSeek V4 Flash (284B) at Q4 around 76 tok/s, but has too little memory for the 671B V3/R1 at any practical quantization. That needs 512GB: the discontinued M3 Ultra managed 671B at Q3 around 24 tok/s, and the 512GB M5 Ultra, due late October 2026, should reach roughly 35 tok/s on the same job. The 1.6T-parameter V4 Pro and the 2.8T Kimi K3 do not fit any single Mac."}
+          "acceptedAnswer": {"@type": "Answer", "text": "Yes. The 512GB M5 Ultra Mac Studio ($22,299, orderable since 28 October 2026) runs DeepSeek-V3/R1 (671B) at ~Q3 quantization around 35 tok/s and Meta's 816B Muse Spark Open at Q3 around 30 tok/s (a tight fit that needs the GPU memory limit raised); the 256GB M5 Ultra runs DeepSeek V4 Flash (284B) at Q4 around 76 tok/s but cannot hold 671B. Note two 256GB M5 Ultras cost $700 less than one 512GB unit. The 1.6T-parameter V4 Pro, the 1T Mistral Large 4 and the 2.8T Kimi K3 / K3.1 Pro do not fit any single Mac."}
         },
         {
           "@type": "Question",
           "name": "What is the best value Mac for local LLMs?",
-          "acceptedAnswer": {"@type": "Answer", "text": "On the used market, a used M1 Ultra Mac Studio 64GB delivers roughly the cheapest tokens over a 3-year life (~$2 per million tokens including electricity), while a used 512GB M3 Ultra is the cheapest per GB of RAM and per billion parameters of model capability. The site's Value panel computes this live across 90 configurations."}
+          "acceptedAnswer": {"@type": "Answer", "text": "On the used market, a used M1 Ultra Mac Studio 64GB delivers roughly the cheapest tokens over a 3-year life (~$2 per million tokens including electricity), while a used 512GB M3 Ultra is the cheapest per GB of RAM and per billion parameters of model capability. The site's Value panel computes this live across 94 configurations."}
         },
         {
           "@type": "Question",
@@ -323,7 +323,7 @@
 <div class="wrap">
   <header>
     <div class="masthead">
-      <div class="eyebrow"><b>Field Guide № 01</b> · Technical reference · Editions 2020 – 2026 · <span title="Date the dataset was last checked against primary sources">Data verified 04 Sep 2026</span></div>
+      <div class="eyebrow"><b>Field Guide № 01</b> · Technical reference · Editions 2020 – 2026 · <span title="Date the dataset was last checked against primary sources">Data verified 22 Nov 2026</span></div>
       <h1>Mac Studio<br><span class="hx">×</span> Local LLMs</h1>
       <div class="sub">Every configuration Apple has ever sold — now also covering the Apple Silicon Mac mini and MacBook Pro — compared spec-for-spec, with which open-weight models each one can actually run: quantization, generation speed, usable context, and true cost of ownership.</div>
     </div>
@@ -360,7 +360,7 @@
       </g>
     </svg>
   </header>
-  <div class="banner"><b>Lineup change (25 Aug 2026):</b> Apple replaced the Mac Studio with M5 Max and M5 Ultra models and the Mac mini with M6 and M5 Pro models — both announced 25 August, shipping 22 September. The M4 Max / M3 Ultra Studio and the M4 / M4 Pro mini are now discontinued and priced here as used and refurbished machines only. The M5 Ultra takes the top memory bandwidth to <b>1.2TB/s</b>, up from 819GB/s. One caveat on capacity: the largest Mac you can order today is the <b>256GB</b> M5 Ultra — the 512GB tier is announced for late October 2026 but has no published price, so it is deliberately absent from this dataset rather than estimated. Earlier 2026 pricing still stands behind the current numbers: a DRAM/NAND shortage pushed Apple to raise Mac Studio prices in June 2026 and pull high-RAM options from the outgoing generation. Check <a href="https://www.apple.com/mac-studio/specs/" target="_blank">apple.com/mac-studio</a> for what's orderable today.</div>
+  <div class="banner"><b>Lineup status (Nov 2026):</b> Apple replaced the Mac Studio (M5 Max / M5 Ultra) and Mac mini (M6 / M5 Pro) on 25 August 2026, and the base 14-inch MacBook Pro (M6, from $1,999) on 27 October. Everything older is priced here as used and refurbished only. The M5 Ultra tops out at <b>1.2TB/s</b> bandwidth and, since 28 October, <b>512GB</b> — at $22,299, which is $700 more than two 256GB units. One trap on the M6: the 16GB base configuration of both the mini and the MacBook Pro runs at 153GB/s; only 24GB and 32GB get the full 170GB/s. Prices still reflect 2026's DRAM/NAND shortage, which raised Mac prices twice this year. Check <a href="https://www.apple.com/mac-studio/specs/" target="_blank">apple.com/mac-studio</a> for what's orderable today.</div>
 
   <nav>
     <button data-panel="compare" class="active">Compare</button>
@@ -454,7 +454,7 @@
           </tbody>
         </table>
       </div>
-      <div class="footnote">*512GB was the original 2025 launch ceiling on M3 Ultra (32-core CPU/80-core GPU tier), reachable now only on the used and refurbished market — Apple pulled the tier during the 2026 memory shortage and then discontinued the whole generation on 25 Aug 2026. Its successor, the 512GB M5 Ultra, is announced for late October 2026 and is not yet priced, so 256GB is the largest configuration in this dataset — see banner above.</div>
+      <div class="footnote">*512GB was the original 2025 launch ceiling on M3 Ultra (32-core CPU/80-core GPU tier), now reachable only used or refurbished — Apple pulled the tier during the 2026 memory shortage and discontinued the generation on 25 Aug 2026. Its successor, the 512GB M5 Ultra (36-core CPU/80-core GPU only), became orderable on 28 Oct 2026 at $22,299.</div>
     </div>
   </section>
 
@@ -865,7 +865,7 @@
   <section class="panel" id="panel-methodology">
     <h2>Data diagnostics</h2>
     <div class="card">
-      <p>Every figure in this guide comes from the dataset embedded in this single file, last verified against primary sources on <b>4 September 2026</b>. This self-test validates the dataset's internal integrity — useful after any future data edit.</p>
+      <p>Every figure in this guide comes from the dataset embedded in this single file, last verified against primary sources on <b>22 November 2026</b>. This self-test validates the dataset's internal integrity — useful after any future data edit.</p>
       <button id="btn-diagnostics" class="chip">Run diagnostics</button>
       <pre id="diag-output" style="display:none;font-family:var(--mono);font-size:11.5px;background:var(--panel2);border:1px solid var(--border);padding:12px;margin-top:12px;white-space:pre-wrap;"></pre>
     </div>
@@ -915,7 +915,7 @@
     <div class="card">
       <p>The Compare table's <b>Current Price</b> column tracks the machines Apple actually sells today. The 25 August 2026 refresh reset that list: the M5 Max / M5 Ultra Studio and the M6 / M5 Pro mini are the current desktops, and everything before them is priced here as used or refurbished only.</p>
       <ul>
-        <li><span class="price-flag verified" style="margin-left:0;">verified</span> — Apple-published base configurations: M5 Max Studio 18-core/32-core/36GB at $2,499, M5 Ultra Studio 30-core/64-core/96GB at $5,499, Mac mini M6 16GB at $899, Mac mini M5 Pro 15-core/16-core/24GB at $1,699.</li>
+        <li><span class="price-flag verified" style="margin-left:0;">verified</span> — Apple-published base configurations: M5 Max Studio 18-core/32-core/36GB at $2,499, M5 Ultra Studio 30-core/64-core/96GB at $5,499, Mac mini M6 16GB at $899, Mac mini M5 Pro 15-core/16-core/24GB at $1,699, the 512GB M5 Ultra at $22,299 ($6,799 36-core/80-core base + $15,500), and the M6 14-inch MacBook Pro 16GB/1TB at $1,999. The M6 MacBook Pro's 24GB/32GB prices weren't in Apple's release, so they reuse the M6 mini's adders.</li>
         <li><span class="price-flag estimated" style="margin-left:0;">est.</span> — every other RAM/GPU tier is its bin's base price plus the launch configuration table's published adder (e.g. +$300 for the 40-core M5 Max GPU, +$1,300 for the 36-core/80-core M5 Ultra, +$4,000 for 256GB), cross-checked for internal consistency but not individually confirmed against a store listing.</li>
         <li>The June 2026 price rise, driven by the global DRAM/NAND shortage, is now baked into these figures rather than modeled on top of them — the M5 Max Studio opens at $2,499, exactly where the outgoing M4 Max Studio had been hiked to from its $1,999 launch price.</li>
         <li><span class="price-muted">Pulled (2026)</span> — M4 Max 128GB and M3 Ultra 256GB/512GB were confirmed withdrawn from sale entirely (March–May 2026) and are not priced.</li>
@@ -941,7 +941,7 @@
     <div class="card">
       <p>The "Local vs cloud API" section answers the pre-purchase question directly: if you generated the same tokens through a hosted API instead of buying the machine, what would it cost, and how long until the hardware pays for itself?</p>
       <p><b>How it's computed:</b> your hours-at-load are assumed to be spent generating tokens at this machine's estimated tok/s for the chosen model (the same bandwidth-bound speed model documented above). Local cost per million tokens is the electricity burned at load wattage over the time it takes to produce them; the monthly local figure additionally includes idle draw for the rest of the day. Cloud cost uses typical hosted <b>output-token</b> prices per model. Payback = today's hardware price (current store price if orderable, used-market midpoint otherwise) ÷ monthly savings.</p>
-      <p><b>Cloud price confidence:</b> four anchors are directly verified as of September 2026 — Tencent's published launch pricing for Hunyuan Hy4 at $2.50/M output, plus DeepSeek R1 at $2.50/M output and Llama 3.3 70B at $0.32/M (both OpenRouter), and GPT-OSS 120B at $0.60/M (Together AI and Fireworks, identical). Every other model is a tier estimate interpolated by size/class, and open-model hosting prices genuinely vary 2–5× between providers and variants (Qwen3-235B spans $0.10–$1.82/M depending on variant and host) — so treat non-anchor comparisons as directional. Cloud USD prices are converted to the display currency with rough fixed FX rates, separate from the regional-MSRP multipliers used for hardware.</p>
+      <p><b>Cloud price confidence:</b> six anchors are directly verified as of November 2026 — Kimi K3.1 Pro at $10/M output (Artificial Analysis), Mistral Large 4 at $2.10/M (Mistral), Tencent's launch pricing for Hunyuan Hy4 at $2.50/M, plus DeepSeek R1 at $2.50/M output and Llama 3.3 70B at $0.32/M (both OpenRouter), and GPT-OSS 120B at $0.60/M (Together AI and Fireworks, identical). Every other model is a tier estimate interpolated by size/class, and open-model hosting prices genuinely vary 2–5× between providers and variants (Qwen3-235B spans $0.10–$1.82/M depending on variant and host) — so treat non-anchor comparisons as directional. Cloud USD prices are converted to the display currency with rough fixed FX rates, separate from the regional-MSRP multipliers used for hardware.</p>
       <p><b>What the payback number deliberately ignores:</b> input-token costs (often the larger share for RAG/long-context workloads — including them would favor local even more), model quality differences between what fits locally and frontier hosted models, the privacy/offline value of local inference, hardware resale value, and macOS utility beyond LLM duty. It's a planning ballpark for the "should I buy this machine at all?" question, not an accounting model.</p>
     </div>
 
@@ -964,7 +964,7 @@
 
     <h2>Model quality scores</h2>
     <div class="card">
-      <p>Every model carries two quality figures, shown as <code>IQ · code</code> chips: a <b>general intelligence index</b> aligned to the Artificial Analysis Intelligence Index scale (verified anchors, refreshed September 2026: Kimi K3 and GLM-5.3 tied at 60 for the best open weights available, Qwen3.8-Max at 58, Kimi K2.6 at 54, and — the number worth pausing on — Qwen3.8-27B at 52, matching DeepSeek V4 Pro at roughly one-sixtieth the parameter count, which is why a 36GB Mac is now a serious machine), and a <b>coding score</b> on the SWE-bench-Verified % scale (verified anchors: Qwen3.6-27B at 77.2 and Qwen3.5-397B at 76.2 from the Qwen3.6 launch benchmarks; DeepSeek R1 at 49). Figures marked <code>~</code> are interpolated from published benchmark relationships rather than read off a leaderboard — treat them as ±5 points.</p>
+      <p>Every model carries two quality figures, shown as <code>IQ · code</code> chips: a <b>general intelligence index</b> aligned to the Artificial Analysis Intelligence Index scale (anchors re-checked November 2026: Kimi K3 at 57 read directly from Artificial Analysis, with Kimi K2.6 at 54 and DeepSeek V4 Pro at 52 from mid-2026; the newest models are placed by the gaps AA and model cards publish against K3 — Kimi K3.1 Pro 11 points above it, now the strongest open weights by a distance. Two caveats: September's figures for K3, GLM-5.3, Qwen3.8-Max and Qwen3.8 27B were overstated, came from secondary write-ups, and have been corrected; and AA moved to Intelligence Index v5 on 27 October 2026, which scores everything lower — this site stays on the v4-era scale until all anchors can be rebased together), and a <b>coding score</b> on the SWE-bench-Verified % scale (verified anchors: Qwen3.6-27B at 77.2 and Qwen3.5-397B at 76.2 from the Qwen3.6 launch benchmarks; DeepSeek R1 at 49). Figures marked <code>~</code> are interpolated from published benchmark relationships rather than read off a leaderboard — treat them as ±5 points.</p>
       <p>These scores replaced parameter count in all value math (leaderboards, questionnaire, duel) because size stopped being a usable quality proxy in 2025: Qwen3.6-27B out-codes models fifteen times its size, and a 180B model from 2023 (Falcon) is far weaker than today's 12B models. Params still drive the <em>memory</em> math — they just no longer stand in for <em>quality</em>.</p>
     </div>
 
@@ -973,7 +973,7 @@
       <p>The Value panel ranks every machine by price-per-unit on the basis you choose. Most metrics are straight division (price ÷ RAM, ÷ bandwidth, ÷ estimated tok/s on the Llama 3.1 8B Q4 reference, ÷ quality points of the best model that fits comfortably at Q4 — quality, not parameter count, since the two diverged; see Model quality scores above). The <b>3-year TCO per 1M tokens</b> goes further: (price + 3 years of electricity at your Running Cost inputs) ÷ (3 years of tokens generated at that duty cycle on the reference model) — a genuinely comparable cost-per-token against cloud APIs, inheriting the speed model's ±30% and the power model's ±30% error bars, so treat it as directional.</p>
       <p>The questionnaire's score is deliberately simple enough to print: <code>score = (quality of the best Q4-fitting model × 5 + w × tok/s on the 8B reference) ÷ (3-yr TCO ÷ 1000)</code>, where quality uses the coding lens (40% general + 60% coding score) when your use case is coding, and <code>w</code> weights speed higher for interactive uses (chat, creative: 1.5; coding: 1.0) than for agentic/reasoning/long-context work (0.7/0.5/0.3). It is a value heuristic, not a benchmark — two machines within ~15% of each other's score are effectively tied, and every price caveat flagged elsewhere (refurb/used estimates, modeled RAM-tier upcharges) applies here too.</p>
       <p>The <b>model deal finder</b> ("Cheapest way to run a model") qualifies a machine when the chosen quality floor fits in 75% of its RAM, then reports the best quant that fits, the decode speed at that quant, and the same 3-year TCO-per-token math — this time using the selected model's own speed rather than the 8B reference, which is why its cost-per-token differs from the leaderboard's. The cloud comparison uses that model's per-token API price (verified where flagged) converted at rough FX.</p>
-      <p>Everything — leaderboards, deal finder, questionnaire scoring, all 90 machines × 46 models — computes locally in your browser from the dataset embedded in this single HTML file. There is no server, no API, and no network request beyond the two web fonts.</p>
+      <p>Everything — leaderboards, deal finder, questionnaire scoring, all 94 machines × 50 models — computes locally in your browser from the dataset embedded in this single HTML file. There is no server, no API, and no network request beyond the two web fonts.</p>
     </div>
 
     <h2>Insights panel</h2>
@@ -990,7 +990,7 @@
 
     <h2>How to improve data accuracy further</h2>
     <div class="card">
-      <p>This tool is fact-checked against primary sources (Apple's own spec pages and regional stores) as of <b>September 2026</b>, but a few things would make it more trustworthy over time:</p>
+      <p>This tool is fact-checked against primary sources (Apple's own spec pages and regional stores) as of <b>November 2026</b>, but a few things would make it more trustworthy over time:</p>
       <ul>
         <li><b>Re-verify against Apple's live configurator</b> before a purchase decision — RAM/GPU tiers and prices have already shifted once in 2026 due to the memory-chip shortage (see banner), and could shift again.</li>
         <li><b>Treat LLM parameter counts as publisher-reported</b>, not independently audited — official model cards (Hugging Face / Meta / Qwen / DeepSeek / OpenAI) are the ground truth if a figure looks off, especially for newer releases.</li>
@@ -1016,6 +1016,10 @@
         <li><a href="https://www.apple.com/mac-studio/specs/" target="_blank">Apple — Mac Studio tech specs (M5 Max 460GB/s 32-core vs 614GB/s 40-core; M5 Ultra 1.2TB/s)</a></li>
         <li><a href="https://daringfireball.net/2026/08/configurations_and_pricing_for_new_mac_minis_and_mac_studios" target="_blank">Daring Fireball — full configuration and pricing tables for the 2026 Mac mini and Mac Studio</a></li>
         <li><a href="https://appleinsider.com/articles/26/08/25/you-can-spend-18299-on-a-mac-studio-today-or-more-in-october" target="_blank">AppleInsider — M5 Ultra upcharges and the late-October 512GB tier</a></li>
+        <li><a href="https://macrumors.com/2026/10/28/mac-studio-m5-ultra-512gb-ram/" target="_blank">MacRumors — 512GB M5 Ultra orderable at $22,299 (28 Oct 2026)</a></li>
+        <li><a href="https://www.macrumors.com/2026/10/27/m6-14-inch-macbook-pro-memory-bandwidth-split/" target="_blank">MacRumors — M6 MacBook Pro: $1,999, 153GB/s on 16GB vs 170GB/s on 24/32GB</a></li>
+        <li><a href="https://9to5mac.com/2026/08/27/m6-mac-mini-three-things-apple-didnt-highlight-in-the-announcement/" target="_blank">9to5Mac — M6 Mac mini 16GB bandwidth is 153GB/s</a></li>
+        <li><a href="https://ppc.land/apples-m6-macbook-pro-stays-at-1-999-after-two-price-rises-in-2026/" target="_blank">PPC Land — the two 2026 Mac price rises (Mar and Jun)</a></li>
         <li><a href="https://everymac.com/systems/apple/mac_mini/index-macmini.html" target="_blank">EveryMac — Mac mini spec archive (M1/M2/M2 Pro/M4/M4 Pro)</a></li>
         <li><a href="https://www.macrumors.com/2026/05/01/mac-mini-now-starts-at-799/" target="_blank">MacRumors — Mac mini base price rises to $799 (May 2026, verified current price)</a></li>
         <li><a href="https://www.macrumors.com/2023/10/31/apple-m3-pro-less-memory-bandwidth/" target="_blank">MacRumors — M3 Pro memory bandwidth cut to 150GB/s</a></li>
@@ -1042,6 +1046,11 @@
         <li><a href="https://huggingface.co/google/gemma-4-31B-it" target="_blank">Hugging Face — Gemma 4 31B model card</a></li>
         <li><a href="https://recipes.vllm.ai/zai-org/GLM-5.3-Flash" target="_blank">vLLM recipes — GLM-5.3-Flash (321B / 18B active, 1M context)</a></li>
         <li><a href="https://www.tencent.com/tencent-releases-and-open-sources-tencent-hy4-preview/" target="_blank">Tencent — Hunyuan Hy4 open-source release and API pricing (cloud-comparison anchor)</a></li>
+        <li><a href="https://artificialanalysis.ai/articles/kimi-k3-1-pro-launch-benchmarks" target="_blank">Artificial Analysis — Kimi K3.1 Pro launch benchmarks and pricing (Oct 2026)</a></li>
+        <li><a href="https://artificialanalysis.ai/articles/artificial-analysis-intelligence-index-v5" target="_blank">Artificial Analysis — Intelligence Index v5 (27 Oct 2026)</a></li>
+        <li><a href="https://mistral.ai/news/mistral-large-4-oss/" target="_blank">Mistral — Mistral Large 4 open weights and API pricing</a></li>
+        <li><a href="https://huggingface.co/meta-models/Muse-Spark-Open-816B-A42B" target="_blank">Hugging Face — Muse Spark Open 816B-A42B model card (architecture: exact KV figure)</a></li>
+        <li><a href="https://huggingface.co/tencent/Hy4-flash" target="_blank">Hugging Face — Tencent Hy4 Flash model card</a></li>
       </ul>
       <p>Regional pricing (used to derive currency multipliers):</p>
       <ul>
@@ -1130,9 +1139,8 @@ const macStudios = [
   // configs come from the launch-day configuration tables, cross-checked against the published
   // +$300 GPU, +$1,300 CPU/GPU and +$4,000 256GB upcharges. RAM tiers apply Apple's published
   // adders to the base config of their bin.
-  // NOT LISTED: the 512GB M5 Ultra. Apple has announced it for late October 2026 but has not
-  // published a price, and every figure in this table feeds live cost math — so it is omitted
-  // rather than guessed. Until it ships, 256GB is the largest orderable Mac.
+  // 512GB tier: orderable from 28 Oct 2026, 36c/80c bin only, $6,799 + $15,500 = $22,299
+  // (MacRumors/Macworld, Apple store). Note it costs $700 MORE than two 256GB units ($21,598).
   {gen:'2026', chip:'M5 Max', cpu:18, gpu:32, ne:16, ram:36, bw:460, storageMax:8192, price:2499, released:'Sep 2026'},
   {gen:'2026', chip:'M5 Max', cpu:18, gpu:40, ne:16, ram:48, bw:614, storageMax:8192, price:3099, released:'Sep 2026'},
   {gen:'2026', chip:'M5 Max', cpu:18, gpu:40, ne:16, ram:64, bw:614, storageMax:8192, price:3499, released:'Sep 2026'},
@@ -1140,6 +1148,7 @@ const macStudios = [
   {gen:'2026', chip:'M5 Ultra', cpu:30, gpu:64, ne:32, ram:96, bw:1200, storageMax:16384, price:5499, released:'Sep 2026'},
   {gen:'2026', chip:'M5 Ultra', cpu:36, gpu:80, ne:32, ram:96, bw:1200, storageMax:16384, price:6799, released:'Sep 2026'},
   {gen:'2026', chip:'M5 Ultra', cpu:36, gpu:80, ne:32, ram:256, bw:1200, storageMax:16384, price:10799, released:'Sep 2026'},
+  {gen:'2026', chip:'M5 Ultra', cpu:36, gpu:80, ne:32, ram:512, bw:1200, storageMax:16384, price:22299, released:'Oct 2026'},
 ];
 /* ===================== DATA: Mac mini & MacBook Pro (LLM-relevant configs) =====================
  * Same row model as the Studio: one buildable chip-bin × RAM tier. Coverage is limited to
@@ -1169,10 +1178,11 @@ const macMinisAndMBPs = [
   {family:'Mac mini', gen:'2024', chip:'M4 Pro', cpu:14, gpu:20, ne:16, ram:64, bw:273, storageMax:8192, price:2199, released:'Oct 2024'},
   // 2026 refresh (announced 25 Aug 2026, ships 22 Sep 2026). Apple paired an all-new base chip
   // with the previous generation's Pro part: M6 (12c CPU / 12c GPU, 170GB/s, dual 16-core Neural
-  // Engine, 2nm) and M5 Pro (15c/16c or 18c/20c, 307GB/s). Base prices $899 and $1,699 are
+  // Engine, 2nm) and M5 Pro (15c/16c or 18c/20c, 307GB/s). CORRECTED (Nov 2026 audit): the
+  // 16GB M6 runs at 153GB/s — only the 24GB/32GB tiers get 170GB/s (Apple tech specs). Base prices $899 and $1,699 are
   // Apple-published; the 18c/20c bin and the RAM tiers apply the launch configuration table's
   // published adders (+$200/+$400 on M6; +$600/+$1,000 on M5 Pro).
-  {family:'Mac mini', gen:'2026', chip:'M6', cpu:12, gpu:12, ne:32, ram:16, bw:170, storageMax:2048, price:899, released:'Sep 2026'},
+  {family:'Mac mini', gen:'2026', chip:'M6', cpu:12, gpu:12, ne:32, ram:16, bw:153, storageMax:2048, price:899, released:'Sep 2026'},
   {family:'Mac mini', gen:'2026', chip:'M6', cpu:12, gpu:12, ne:32, ram:24, bw:170, storageMax:2048, price:1099, released:'Sep 2026'},
   {family:'Mac mini', gen:'2026', chip:'M6', cpu:12, gpu:12, ne:32, ram:32, bw:170, storageMax:2048, price:1299, released:'Sep 2026'},
   {family:'Mac mini', gen:'2026', chip:'M5 Pro', cpu:15, gpu:16, ne:16, ram:24, bw:307, storageMax:8192, price:1699, released:'Sep 2026'},
@@ -1227,6 +1237,13 @@ const macMinisAndMBPs = [
   {family:'MacBook Pro', gen:'2026', chip:'M5 Max', cpu:18, gpu:32, ne:16, ram:36, bw:460, storageMax:8192, price:3599, released:'Mar 2026'},
   {family:'MacBook Pro', gen:'2026', chip:'M5 Max', cpu:18, gpu:32, ne:16, ram:64, bw:460, storageMax:8192, price:3999, released:'Mar 2026'},
   {family:'MacBook Pro', gen:'2026', chip:'M5 Max', cpu:18, gpu:32, ne:16, ram:128, bw:460, storageMax:8192, price:4999, released:'Mar 2026'},
+  // M6 14" (announced 27 Oct 2026, shipped 6 Nov) replaces the base-M5 model. 12c/12c, dual 16-core
+  // Neural Engine; same bandwidth split as the M6 mini — 16GB 153GB/s, 24/32GB 170GB/s. $1,999
+  // (16GB/1TB) is Apple-published; Apple didn't publish upgrade prices in the release, so the 24GB
+  // and 32GB tiers apply the M6 mini's +$200/+$400 adders (modeled). No M6 Pro/Max until M7.
+  {family:'MacBook Pro', gen:'2026', chip:'M6', cpu:12, gpu:12, ne:32, ram:16, bw:153, storageMax:4096, price:1999, released:'Nov 2026'},
+  {family:'MacBook Pro', gen:'2026', chip:'M6', cpu:12, gpu:12, ne:32, ram:24, bw:170, storageMax:4096, price:2199, released:'Nov 2026'},
+  {family:'MacBook Pro', gen:'2026', chip:'M6', cpu:12, gpu:12, ne:32, ram:32, bw:170, storageMax:4096, price:2399, released:'Nov 2026'},
 ];
 macStudios.forEach(m=>{ m.family='Studio'; });
 macStudios.push(...macMinisAndMBPs);
@@ -1251,13 +1268,11 @@ function tierChipHTML(key, value, label){
   return `<span class="tier-chip" style="background:color-mix(in srgb, var(--accent) ${pct}%, var(--panel));">${label}</span>`;
 }
 
-// Which lines Apple still sells new, as of the Sep 2026 audit. The 25 Aug 2026 refresh retired
-// the 2025 Studio (M4 Max / M3 Ultra) and the 2024 mini (M4 / M4 Pro) in one go, so both of those
-// generations moved to "discontinued" here; the M5 MacBook Pros are still the current laptops
-// (the M6 MacBook Pro is expected late Oct 2026 and isn't in the dataset until it ships).
+// Which lines Apple still sells new, as of the Nov 2026 audit. The 25 Aug 2026 refresh retired the
+// 2025 Studio and 2024 mini; the 27 Oct 2026 M6 MacBook Pro retired the base-M5 (gen 2025) model.
+// Current: 2026 Studio/mini, and 2026 MacBook Pros (M6, M5 Pro, M5 Max).
 function isCurrentlySold(m){
-  return ((m.family==='Studio' || m.family==='Mac mini') && m.gen==='2026')
-      || (m.family==='MacBook Pro' && (m.gen==='2025' || m.gen==='2026'));
+  return m.gen==='2026';
 }
 
 // Era styling bucket for the generation tag, shared across all panels.
@@ -1383,6 +1398,11 @@ const llms = [
   {name:'GLM-5.3-Flash', paramsB:320, activeB:18, family:'GLM', popular:true, useCases:['coding','tool-calling','long-context']},
   {name:'GLM-5.3', paramsB:744, activeB:40, family:'GLM', popular:true, useCases:['coding','tool-calling','long-context']},
   {name:'Hunyuan Hy4', paramsB:770, activeB:49, family:'Hunyuan', popular:false, useCases:['coding','general','long-context']},
+  // ---- Nov 2026 audit additions (Oct-Nov 2026 open-weight releases) ----
+  {name:'Muse Spark Open', paramsB:816, activeB:42, family:'Muse', popular:true, useCases:['general','long-context','tool-calling']},
+  {name:'Mistral Large 4', paramsB:1000, activeB:52, family:'Mistral', popular:true, useCases:['coding','tool-calling','general']},
+  {name:'Kimi K3.1 Pro', paramsB:2800, activeB:104, family:'Moonshot', popular:true, useCases:['reasoning','coding','tool-calling','long-context']},
+  {name:'Hunyuan Hy4 Flash', paramsB:220, activeB:12, family:'Hunyuan', popular:false, useCases:['general','long-context','tool-calling']},
 ];
 
 /* ===================== CONTEXT-WINDOW ARCHITECTURE DATA =====================
@@ -1459,6 +1479,14 @@ const CONTEXT_ARCH = {
   'GLM-5.3-Flash':       {kvKB:40,  maxCtxK:1000},
   'GLM-5.3':             {kvKB:60,  maxCtxK:1000}, // shares the GLM-5.2 base
   'Hunyuan Hy4':         {kvKB:80,  maxCtxK:1000}, // 78 layers; attention config not published
+  // Nov 2026. Muse Spark Open is exact from its model card: 62 layers x 16 KV heads x 64 head dim
+  // x 2 (K+V) x 2 bytes = 248KB/token — plain GQA, so its 1M window is far from reachable locally.
+  // Hy4 Flash pairs MLA with 1:3 sparse/sliding-window layers (Tencent: KV 1/6 of Hy4's).
+  // K3.1 Pro swaps K3's gated MLA for gated DeepSeek-style sparse attention.
+  'Muse Spark Open':     {kvKB:248, maxCtxK:1000},
+  'Mistral Large 4':     {kvKB:90,  maxCtxK:1000}, // attention config not published; est
+  'Kimi K3.1 Pro':       {kvKB:40,  maxCtxK:1048},
+  'Hunyuan Hy4 Flash':   {kvKB:15,  maxCtxK:1048},
 };
 
 /* ===================== CLOUD API PRICING (USD per 1M OUTPUT tokens) =====================
@@ -1512,13 +1540,17 @@ const CLOUD_PRICE_OUT_PER_M = {
   'GLM-5.2':             4.40,  // verified (Z.ai API pricing, Jun 2026)
   'Gemma 4 26B-A4B':     0.10,
   'Gemma 4 31B':         0.20,
-  'Kimi K3':             4.00,
+  'Kimi K3':             15.00, // derived: K3.1 Pro's $10/M is "33% lower than Kimi K3" (Artificial Analysis)
   'Muse Glimmer 30B':    0.25,
   'Qwen3.8-Max':         3.00,
   'Qwen3.8 27B':         0.40,
   'GLM-5.3-Flash':       1.10,
   'GLM-5.3':             4.40,  // same base and tier as GLM-5.2
   'Hunyuan Hy4':         2.50,  // verified (Tencent published API pricing at launch: $2.501/M out)
+  'Muse Spark Open':     2.00,
+  'Mistral Large 4':     2.10,  // verified (Mistral launch post: $2.10/M output)
+  'Kimi K3.1 Pro':       10.00, // verified (Artificial Analysis launch article: $10/M output)
+  'Hunyuan Hy4 Flash':   0.40,
 };
 
 // Rough FX for converting USD cloud-API prices into the display currency ONLY — hardware
@@ -1553,6 +1585,8 @@ const OLLAMA_ID = {
   'Gemma 4 26B-A4B':'gemma4:26b', 'Gemma 4 31B':'gemma4:31b', 'Kimi K3':'kimi-k3',
   'Muse Glimmer 30B':'muse-glimmer:30b', 'Qwen3.8-Max':'qwen3.8:max', 'Qwen3.8 27B':'qwen3.8:27b',
   'GLM-5.3-Flash':'glm-5.3-flash', 'GLM-5.3':'glm-5.3', 'Hunyuan Hy4':'hunyuan:hy4',
+  'Muse Spark Open':'muse-spark-open', 'Mistral Large 4':'mistral-large4', 'Kimi K3.1 Pro':'kimi-k3.1-pro',
+  'Hunyuan Hy4 Flash':'hunyuan:hy4-flash',
 };
 
 /* ===================== MODEL QUALITY SCORES =====================
@@ -1605,20 +1639,30 @@ const QUALITY = {
   'DeepSeek V4 Pro':     {q:52, c:70, v:true},
   'Kimi K2.6':           {q:54, c:72, v:true},  // IQ verified (AA #1 open-weights, mid-2026); code est
   'GLM-5.2':             {q:51, c:79, v:true},  // IQ verified (AA v4.1); code est from beats-GPT-5.5 coding reports
-  // Sep 2026 audit. Four new verified IQ anchors from the Artificial Analysis Intelligence
-  // Index, which reset the top of this scale: Kimi K3 and GLM-5.3 tie at 60 for best open
-  // weights, Qwen3.8-Max is 58, and Qwen3.8-27B lands at 52 — matching DeepSeek V4 Pro at
-  // roughly 1/60th the parameter count, which is the single most notable data point in this
-  // refresh for anyone buying a Mac. Coding scores remain est unless noted.
+  // Sep 2026 additions, CORRECTED in the Nov 2026 audit. September's 60/60/58/52 "verified"
+  // anchors came from secondary write-ups and don't survive contact with Artificial Analysis's own
+  // pages: AA's comparison page has Kimi K3 (max) at 57 on this scale, and the pre-v5 (v4.3) table
+  // in Meta's Muse Spark Open model card puts GLM-5.3 one point above K3 and Qwen3.8-Max four
+  // below. Only K3 is read directly; the rest are placed by those published gaps (est). The
+  // Qwen3.8 27B "52" had no traceable source at all and is now an estimate below its big sibling.
   'Gemma 4 26B-A4B':     {q:33, c:30, v:false},
   'Gemma 4 31B':         {q:38, c:38, v:false},
-  'Kimi K3':             {q:60, c:80, v:true},  // IQ verified (AA #1 open weights, Aug 2026)
+  'Kimi K3':             {q:57, c:78, v:true},  // IQ verified (AA comparison page)
   'Muse Glimmer 30B':    {q:36, c:34, v:false},
-  'Qwen3.8-Max':         {q:58, c:78, v:true},  // IQ verified (AA #2 open weights)
-  'Qwen3.8 27B':         {q:52, c:74, v:true},  // IQ verified (AA)
-  'GLM-5.3-Flash':       {q:55, c:76, v:false},
-  'GLM-5.3':             {q:60, c:82, v:true},  // IQ verified (AA, tied #1); code est
+  'Qwen3.8-Max':         {q:53, c:74, v:false}, // K3 − 4 per the v4.3 table
+  'Qwen3.8 27B':         {q:44, c:68, v:false},
+  'GLM-5.3-Flash':       {q:51, c:72, v:false},
+  'GLM-5.3':             {q:58, c:80, v:false}, // K3 + 1 per the v4.3 table
   'Hunyuan Hy4':         {q:49, c:70, v:false},
+  // Nov 2026. K3.1 Pro: AA launch article scores it 55 on v4.3, 11 points over K3 (44 on that
+  // version), the largest open-weights jump of the year, so it sits 11 above K3 here. Muse Spark
+  // Open is 5 below K3 and Mistral Large 4 6 below on the AA table in Meta's model card (re-checked
+  // 22 Nov against the primary cards; Mistral's own card quotes 26 on v5, a different scale). AA moved to index v5 on 27 Oct 2026 (new private task mix; open-weights
+  // best 46); this site stays on the v4-era scale until every anchor can be rebased together.
+  'Muse Spark Open':     {q:52, c:66, v:false},
+  'Mistral Large 4':     {q:51, c:78, v:false},
+  'Kimi K3.1 Pro':       {q:68, c:84, v:false},
+  'Hunyuan Hy4 Flash':   {q:42, c:55, v:false},
 };
 
 /* Model release dates as decimal years — verified for the 2026 wave (Qwen3.5 Feb 2026,
@@ -1645,6 +1689,8 @@ const MODEL_RELEASED = {
   'Qwen3.8-Max': 2026.61, 'Qwen3.8 27B': 2026.62,             // Aug 12 / Aug 13 2026
   'GLM-5.3-Flash': 2026.65, 'GLM-5.3': 2026.66,               // Aug 26 / Aug 28 2026
   'Hunyuan Hy4': 2026.66,                                     // Aug 28 2026
+  'Muse Spark Open': 2026.79, 'Mistral Large 4': 2026.83,     // Oct 15 / Oct 29 2026
+  'Kimi K3.1 Pro': 2026.84, 'Hunyuan Hy4 Flash': 2026.88,     // Nov 4 / Nov 17 2026
 };
 
 /* ===================== COMMUNITY BENCHMARKS =====================
@@ -2088,8 +2134,7 @@ const CURRENT_HIKE = {
 };
 // Kept as the historical record of the mid-2026 shortage. These three tiers no longer reach the
 // "unavailable" branch below — the whole 2025 Studio generation was discontinued on 25 Aug 2026,
-// so it short-circuits to "discontinued" first. The M5 Ultra's own 512GB tier is not listed here:
-// it isn't withdrawn, just not orderable until late Oct 2026, and it's absent from the dataset.
+// so it short-circuits to "discontinued" first.
 const REMOVED_TIERS_2026 = [
   {chip:'M4 Max', ram:128, family:'Studio'},
   {chip:'M3 Ultra', ram:256, family:'Studio'},
@@ -2116,6 +2161,8 @@ function getCurrentPriceInfo(m){
   const verified = (m.family==='Studio' && m.chip==='M5 Max' && m.gpu===32 && m.ram===36)
                 || (m.family==='Studio' && m.chip==='M5 Ultra' && m.cpu===30 && m.ram===96)
                 || (m.family==='Mac mini' && m.chip==='M6' && m.ram===16)
+                || (m.family==='Studio' && m.chip==='M5 Ultra' && m.ram===512)
+                || (m.family==='MacBook Pro' && m.chip==='M6' && m.ram===16)
                 || (m.family==='Mac mini' && m.chip==='M5 Pro' && m.cpu===15 && m.ram===24);
   const priceUSD = Math.round(m.price * hike);
   return {status: verified ? 'verified' : 'estimated', priceUSD};
